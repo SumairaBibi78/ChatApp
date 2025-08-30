@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chatly — RealTime Chat (Frontend)</title>
+  <link rel="icon" href="asset/logo.png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="appbar">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"><img src="asset/logo.png" alt="Chatly Logo"/></div>
+        <div>Chatly</div>
+      </div>
+
+      <div class="toolbar">
+        <!-- Theme toggle -->
+        <button class="tool-btn" id="themeToggle" title="Toggle light/dark" aria-label="Toggle theme">🌗</button>
+
+        <!-- Density: compact / comfy / spacious -->
+        <div class="seg" role="tablist" aria-label="Density">
+          <button class="density" data-density="compact" role="tab">Compact</button>
+          <button class="density active" data-density="comfy" role="tab">Comfy</button>
+          <button class="density" data-density="spacious" role="tab">Spacious</button>
+        </div>
+
+        <!-- Mode: default/focus -->
+        <div class="seg" role="tablist" aria-label="View mode">
+          <button class="mode active" data-mode="default" role="tab">Default</button>
+          <button class="mode" data-mode="focus" role="tab">Focus</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="split">
+      <!-- Sidebar -->
+      <aside class="panel sidebar">
+        <div class="sidebar-header">
+          <div class="search" role="search">
+            <span>🔎</span>
+            <input id="search" placeholder="Search users" />
+          </div>
+        </div>
+        <div class="chat-list" id="chatList" role="navigation" aria-label="Conversations">
+          <!-- Contacts injected by JS -->
+        </div>
+      </aside>
+
+      <!-- Chat panel -->
+      <section class="panel chat" aria-live="polite">
+        <div class="chat-header">
+          <div class="chat-peer">
+            <div class="avatar" id="peerAvatar" aria-hidden="true">U</div>
+            <div class="peer-info">
+              <div class="title" id="peerName">User Name</div>
+              <div class="status" id="peerStatus">Last seen just now</div>
+            </div>
+          </div>
+          <div class="chip muted" id="encryptionChip" title="Messages encrypted in browser">🔐 End-to-end (demo)</div>
+        </div>
+
+        <div class="messages" id="messages" tabindex="0" aria-label="Messages">
+          <!-- Day headers + messages injected -->
+          <button class="unread-jump" id="unreadJump">
+            <span>↓ Scroll to Unread</span>
+            <span class="unread-pill" id="unreadCount">0 new</span>
+          </button>
+        </div>
+
+        <div class="composer">
+          <div class="input-wrap">
+            <textarea id="input" placeholder="Type your message..." aria-label="Message input"></textarea>
+            <span class="chip muted" id="typingYou" style="display:none;">You are typing...</span>
+          </div>
+          <button class="send" id="sendBtn" title="Send (Enter)" aria-label="Send">📨 Send</button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="app-footer"> © Sumaira Bibi. </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
