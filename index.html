@@ -50,7 +50,7 @@
 
       <!-- Chat panel -->
       <section class="panel chat" aria-live="polite">
-        <div class="chat-header">
+        <div class="chat-header" id="chatHeader">
           <div class="chat-peer">
             <div class="avatar" id="peerAvatar" aria-hidden="true">U</div>
             <div class="peer-info">
@@ -58,7 +58,19 @@
               <div class="status" id="peerStatus">Last seen just now</div>
             </div>
           </div>
-          <div class="chip muted" id="encryptionChip" title="Messages encrypted in browser">🔐 End-to-end (demo)</div>
+          <div class="chat-actions">
+            <div class="chip muted" id="encryptionChip" title="Messages encrypted in browser">🔐 End-to-end (demo)</div>
+            <button class="tool-btn" id="closeChatBtn" title="Close chat" aria-label="Close chat">✖️</button>
+          </div>
+        </div>
+        
+        <!-- Empty state when no chat selected -->
+        <div class="empty-state" id="emptyState" aria-hidden="true">
+          <div class="empty-logo">
+            <img src="asset/logo.png" alt="Chatly Logo" />
+          </div>
+          <div class="empty-title">Welcome to Chatly</div>
+          <div class="empty-sub">Select a conversation to start messaging</div>
         </div>
 
         <div class="messages" id="messages" tabindex="0" aria-label="Messages">
@@ -69,12 +81,12 @@
           </button>
         </div>
 
-        <div class="composer">
+        <div class="composer" id="composer">
           <div class="input-wrap">
             <textarea id="input" placeholder="Type your message..." aria-label="Message input"></textarea>
             <span class="chip muted" id="typingYou" style="display:none;">You are typing...</span>
           </div>
-          <button class="send" id="sendBtn" title="Send (Enter)" aria-label="Send">📨 Send</button>
+          <button class="send" id="sendBtn" title="Send" aria-label="Send">📨 Send</button>
         </div>
       </section>
     </main>
